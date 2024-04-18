@@ -16,4 +16,6 @@ Chirp spread spectrum is a type of spread spectrum modulation where the frequenc
 5.  **Amplitude Control**: Optionally, an amplitude modulation block can be used to control the signal's amplitude. This block may not be necessary depending on the specific requirements of your application.
     
 6.  **USRP Sink**: Finally, the signal is sent to the USRP Sink block, which interfaces with the USRP hardware for transmission over the air. The USRP Sink block converts the digital signal into an analog waveform suitable for transmission and sends it to the USRP hardware for RF transmission.
+
+   
 So keeping this flow of signal in mind,I've made a GNU flowgrap for modulating LoRa signals
