@@ -23,3 +23,5 @@ So keeping this flow of signal in mind,I've made a GNU flowgrap for modulating L
 The version I used is 3.10.7
 
 ![image](https://github.com/Ritikakdr/GNU-radio/assets/116477443/a64bf525-35dc-4448-978e-288692457fe7)
+
+I used the samp_rate 250kHz,because i assumed my signal to be 125kHz.And for the frequency shift the desired center frequency is 915 MHz and the signal is currently at baseband (0 Hz), the frequency shift required would be 915 MHz. 
