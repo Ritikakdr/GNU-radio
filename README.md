@@ -29,4 +29,4 @@ I used the samp_rate 250kHz,because i assumed my signal to be 125kHz.And for the
 
 If the signal is at a non-zero baseband the frequency shift would be :
 
-## frequencey shift = Desired center frequency - Baseband frequency
+### frequencey shift = Desired center frequency - Baseband frequency
