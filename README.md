@@ -19,3 +19,5 @@ Chirp spread spectrum is a type of spread spectrum modulation where the frequenc
 
    
 So keeping this flow of signal in mind,I've made a GNU flowgrap for modulating LoRa signals
+
+![image](https://github.com/Ritikakdr/GNU-radio/assets/116477443/a64bf525-35dc-4448-978e-288692457fe7)
