@@ -27,7 +27,16 @@ The length of the preamble in symbols.
 The preamble helps with signal detection and synchronization.Typical values range from 6 to 12 symbols.
 
    
-         
+## CODE
+ The code given below is for a GNU radio python block for LoRa modulation. It basically accepts a complex input symbols and modulates them using LoRa's Chirp Spread Spectrum (CSS) technique.
+ The code mainly uses the 4 parameter's that is Bandwidth, spreading factor, coding rate and the preamble length to control the modulation process.
+ so here's how it works , for each input signal it calculates the frequency offset and generates a chirp signal based on the parameters. The chirp signal that has been modulated is then written to the output buffer for transmission.
+
+ ### for loop
+ Used a for loop to process each input symbol,here's how it works
+  So for every given input symbol it calculates the frequency offset based on the value,bandwidth and chirps per symbol. frequency offset determines the center frequency for the chirp signal.,it basically maps each input symbol to a specific frequency range. Then another for loop calculates the chirp signal generation, we can calculate the chips per symbol and chip duration with the help of the parameters. And then the chirp frequency is calculated, once we know the chirp frequency it is simple to calculate the chirp value . A series of these chirsp values generate a modulation. 
+
+
     import numpy as np
     from gnuradio import gr
 
@@ -78,3 +87,12 @@ The preamble helps with signal detection and synchronization.Typical values rang
 
         # Return the number of output items produced
         return len(out_data)
+
+
+Here's the GNUradio flowgraph:
+
+
+![Screenshot from 2024-04-20 21-19-30](https://github.com/Ritikakdr/GNU-radio/assets/116477443/a650fc75-c95a-4d44-a94d-a16e4e64d4ac)
+
+
+![image](https://github.com/Ritikakdr/GNU-radio/assets/116477443/bc4f7b94-4c9f-4a13-b104-44cf7a1cf84e)
