@@ -114,14 +114,15 @@ Here's the GNUradio flowgraph:
 
 
 start here
-import numpy as np
-from gnuradio import gr
-from scipy.signal import chirp
 
-class LoRaModulationBlock(gr.sync_block):
-    """
-    This block implements LoRa modulation.
-    """
+                  import numpy as np
+                  from gnuradio import gr
+                  from scipy.signal import chirp
+
+                  class LoRaModulationBlock(gr.sync_block):
+                                  """
+                               This block implements LoRa modulation.
+                             """
 
     def __init__(self, spreading_factor=7, bandwidth=125e3, coding_rate=4/5, frequency_offset=0.0):
         """
@@ -167,6 +168,9 @@ class LoRaModulationBlock(gr.sync_block):
             output_data[i] = np.exp(1j * 2 * np.pi * frequency * time[i])
 
         return num_samples
+
+
+
 
 
 
