@@ -92,6 +92,84 @@ The preamble helps with signal detection and synchronization.Typical values rang
 Here's the GNUradio flowgraph:
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+start here
+import numpy as np
+from gnuradio import gr
+from scipy.signal import chirp
+
+class LoRaModulationBlock(gr.sync_block):
+    """
+    This block implements LoRa modulation.
+    """
+
+    def __init__(self, spreading_factor=7, bandwidth=125e3, coding_rate=4/5, frequency_offset=0.0):
+        """
+        Initialize the block with LoRa parameters.
+
+        :param spreading_factor: Spreading factor, must be an integer between 7 and 12.
+        :param bandwidth: Bandwidth in Hz, typically 125e3, 250e3, or 500e3.
+        :param coding_rate: Coding rate as a fraction (e.g., 4/5).
+        :param frequency_offset: Frequency offset in Hz, default is 0.
+        """
+        gr.sync_block.__init__(
+            self,
+            name='LoRa Modulation Block',  # name that will show up in GRC
+            in_sig=[np.int8],  # Expecting input as bits (0s and 1s)
+            out_sig=[np.complex64]  # Outputting complex modulated signal
+        )
+        self.spreading_factor = spreading_factor
+        self.bandwidth = bandwidth
+        self.coding_rate = coding_rate
+        self.frequency_offset = frequency_offset
+
+    def work(self, input_items, output_items):
+        """
+        Perform LoRa modulation on the input data.
+
+        :param input_items: Input items containing bits to modulate.
+        :param output_items: Output items to hold the modulated signal.
+        """
+        input_data = input_items[0]
+        output_data = output_items[0]
+
+        # Apply LoRa modulation logic here
+        # This is a simple example using chirp modulation for demonstration purposes
+        # In a real-world scenario, you would implement proper LoRa modulation logic
+
+        # Calculate the time array for the modulation
+        num_samples = len(input_data)
+        time = np.arange(num_samples) / self.bandwidth
+
+        # Apply a frequency sweep (chirp) based on the input data
+        for i in range(num_samples):
+            frequency = self.frequency_offset + (input_data[i] * self.bandwidth / 2**self.spreading_factor)
+            output_data[i] = np.exp(1j * 2 * np.pi * frequency * time[i])
+
+        return num_samples
+
+
+
 ![Screenshot from 2024-04-20 21-19-30](https://github.com/Ritikakdr/GNU-radio/assets/116477443/a650fc75-c95a-4d44-a94d-a16e4e64d4ac)
 
 
