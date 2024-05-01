@@ -100,7 +100,8 @@ The preamble helps with signal detection and synchronization.Typical values rang
 
 
 Here's the GNUradio flowgraph:
-![Screenshot from 2024-04-20 21-19-30](https://github.com/Ritikakdr/GNU-radio/assets/116477443/a650fc75-c95a-4d44-a94d-a16e4e64d4ac)
+![image](https://github.com/Ritikakdr/GNU-radio/assets/116477443/b8e1390a-8649-4e26-9699-04a8100deb84)
+
 
 
 
